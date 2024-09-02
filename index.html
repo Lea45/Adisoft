@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>ADiSoft</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navigation">
+      <button
+        class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        &#9776;
+      </button>
+      <div class="menu-container">
+        <ul class="menu">
+          <li class="logo-item">
+            <div class="logo">LOGO</div>
+          </li>
+          <li><a href="#home">Rent</a></li>
+          <li><a href="#references">References</a></li>
+          <li><a href="#aboutus">About Us</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="translate-btn" onclick="translateToCroatian()">
+          HR
+        </button>
+      </div>
+    </nav>
+
+    <!-- Cover Section -->
+    <section class="cover">
+      <img src="images/cover.jpg" alt="Exclusive Villa Rovinj" />
+      <div class="cover-text">
+        <p><b>Exclusive Villa</b> | Rovinj</p>
+      </div>
+    </section>
+
+    <!-- Name Section -->
+    <section class="name">
+      <h1 class="main-title">Malipiero Residence</h1>
+      <div class="price-btn">
+        <p class="price">from <span class="amount">2300 €</span> per day</p>
+        <button class="send-button">Send inquiry</button>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="image-container">
+        <img src="images/cover.jpg" alt="Opis slike" />
+        <div class="overlay">
+          <div class="text">
+            <div class="column">
+              The only 5-star residence in the old town of Rovinj with a sense
+              of history and breathtaking views.
+            </div>
+            <div class="column">
+              <span class="icon"><i class="fas fa-home"></i></span> Property
+              size: 322m²<br />
+              <span class="icon"><i class="fas fa-users"></i></span> Max guests:
+              12<br />
+              <span class="icon"><i class="fas fa-bed"></i></span> Bedrooms: 6
+            </div>
+            <div class="column">
+              <span class="icon"><i class="fas fa-bath"></i></span> Bathrooms:
+              8<br />
+              <span class="icon"><i class="fas fa-calendar-alt"></i></span> Year
+              built: 2020<br />
+              <span class="icon"><i class="fas fa-water"></i></span> Sea
+              distance: 20m
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow-container">
+      <div class="slide">
+        <img src="images/cover.jpg" alt="Cover image" />
+      </div>
+      <div class="slide">
+        <img src="images/bathroom.jpg" alt="Bathroom" />
+      </div>
+      <div class="slide">
+        <img src="images/bedroom.jpg" alt="Bedroom" />
+      </div>
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+      <div class="slideshow-text">
+        <p>Modern luxury design within centuries-old building</p>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-container">
+      <img src="images/livingroom.jpg" alt="Living room" />
+      <div class="box-lct">
+        <p class="lct-text">
+          Two houses with 7 floors connected into one home.
+        </p>
+      </div>
+      <div class="text-container">
+        <p class="nextto-text">
+          Located in the heart of Old Town Rovinj, Malipiero Residence was
+          meticulously restored. Originally built by the Malipiero family, it
+          dates back more than 300 years. The Malipiero family crest still
+          adorns the house, as it does the Palazzo Malipiero on the Grand Canal
+          in Venice.
+        </p>
+        <p>
+          It sits along Rovinj's old city wall, part of which is displayed on
+          the main staircase. The Residence, with its 7 floors, delivers a
+          unique sense of history combined with modern luxury design. The only
+          five-star Residence in the Old Town of Rovinj with the privacy of a
+          holiday home and personalized services of exceptional quality.
+        </p>
+      </div>
+    </section>
+
+    <!-- Image Grid Section -->
+    <section class="grid-container">
+      <img src="images/vineroom.jpg" alt="Vine Room 1" />
+      <img src="images/vineroom.jpg" alt="Vine Room 2" />
+      <img src="images/vineroom.jpg" alt="Vine Room 3" />
+      <img src="images/vineroom.jpg" alt="Vine Room 4" />
+      <img src="images/vineroom.jpg" alt="Vine Room 5" />
+      <img src="images/vineroom.jpg" alt="Vine Room 6" />
+      <img src="images/vineroom.jpg" alt="Vine Room 7" />
+      <img src="images/vineroom.jpg" alt="Vine Room 8" />
+      <img src="images/vineroom.jpg" alt="Vine Room 9" />
+      <img src="images/vineroom.jpg" alt="Vine Room 10" />
+      <img src="images/vineroom.jpg" alt="Vine Room 11" />
+      <img src="images/vineroom.jpg" alt="Vine Room 12" />
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities">
+      <h2>Amenities</h2>
+      <div class="column">
+        <span class="icon"><i class="fas fa-home"></i></span> Property size:
+        440m²<br />
+        <span class="icon"><i class="fas fa-users"></i></span> Max guests: 12<br />
+        <span class="icon"><i class="fas fa-bed"></i></span> Bedrooms: 6
+      </div>
+      <div class="column">
+        <span class="icon"><i class="fas fa-bath"></i></span> Bathrooms: 8<br />
+        <span class="icon"><i class="fas fa-toilet"></i></span> Guest toilet:
+        1<br />
+        <span class="icon"><i class="fas fa-water"></i></span> Sea distance: 20m
+      </div>
+      <div class="column">
+        <span class="icon"><i class="fas fa-brush"></i></span> Year built:
+        2020<br />
+        <span class="icon"><i class="fas fa-paw"></i></span> Pets: Not
+        allowed<br />
+        <span class="icon"><i class="fas fa-child"></i></span> Young groups:
+        Allowed
+      </div>
+    </section>
+
+    <!-- Additional Amenities Section -->
+    <section class="add-amenities">
+      <h2>Additional Amenities</h2>
+      <div class="column">
+        <span class="icon"><i class="fas fa-temperature-low"></i></span> A/C /
+        Heating<br />
+        <span class="icon"><i class="fas fa-baby"></i></span> Feeding chair and
+        baby crib<br />
+        <span class="icon"><i class="fas fa-bed"></i></span> Linens<br />
+        <span class="icon"><i class="fas fa-utensils"></i></span> Oven<br />
+        <span class="icon"><i class="fas fa-tv"></i></span> Satellite
+        channels<br />
+        <span class="icon"><i class="fas fa-coffee"></i></span> Tea / Coffee
+        maker<br />
+        <span class="icon"><i class="fas fa-tv"></i></span> TV
+      </div>
+      <div class="column">
+        <span class="icon"><i class="fas fa-bath"></i></span> Bathroom<br />
+        <span class="icon"><i class="fas fa-wind"></i></span> Hairdryer<br />
+        <span class="icon"><i class="fas fa-microwave"></i></span>
+        Microwave<br />
+        <span class="icon"><i class="fas fa-parking"></i></span> Parking<br />
+        <span class="icon"><i class="fas fa-spa"></i></span> Sauna<br />
+        <span class="icon"><i class="fas fa-sun"></i></span> Terrace<br />
+        <span class="icon"><i class="fas fa-wifi"></i></span> Wifi
+      </div>
+      <div class="column">
+        <span class="icon"><i class="fas fa-dishwasher"></i></span>
+        Dishwasher<br />
+        <span class="icon"><i class="fas fa-iron"></i></span> Ironing
+        facilities<br />
+        <span class="icon"><i class="fas fa-smoking-ban"></i></span> Non-smoking
+        rooms<br />
+        <span class="icon"><i class="fas fa-snowflake"></i></span>
+        Refrigerator<br />
+        <span class="icon"><i class="fas fa-shower"></i></span> Shower<br />
+        <span class="icon"><i class="fas fa-toilet-paper"></i></span> Towels
+      </div>
+    </section>
+
+    <!-- Check In/Out Section -->
+    <section class="in-out">
+      <img src="images/bed.jpg" alt="Bedroom" />
+      <div class="in-out-info">
+        <div class="check-in">
+          <p class="label">Check-in</p>
+          <p class="in">from <span class="time">16:00</span></p>
+        </div>
+        <div class="check-out">
+          <p class="label">Check-out</p>
+          <p class="out">till <span class="time">10:00</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d22552.408336057008!2d13.670273376840084!3d45.044186069798194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shr!2shr!4v1725113200016!5m2!1shr!2shr"
+        width="100%"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="carousel-container">
+      <h2>Reviews</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel-item">
+          <div class="box">
+            We love Rovinj and staying in Malipiero Residence gave us the
+            feeling of living here. The facilities and staff made it a true
+            luxury vacation we didn't want to end.
+            <p>Jill & Mike</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            We love Rovinj and staying in Malipiero Residence gave us the
+            feeling of living here. The facilities and staff made it a true
+            luxury vacation we didn't want to end.
+            <p>Jill & Mike</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            We love Rovinj and staying in Malipiero Residence gave us the
+            feeling of living here. The facilities and staff made it a true
+            luxury vacation we didn't want to end.
+            <p>Jill & Mike</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            We love Rovinj and staying in Malipiero Residence gave us the
+            feeling of living here. The facilities and staff made it a true
+            luxury vacation we didn't want to end.
+            <p>Jill & Mike</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            We love Rovinj and staying in Malipiero Residence gave us the
+            feeling of living here. The facilities and staff made it a true
+            luxury vacation we didn't want to end.
+            <p>Jill & Mike</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="box">
+            We love Rovinj and staying in Malipiero Residence gave us the
+            feeling of living here. The facilities and staff made it a true
+            luxury vacation we didn't want to end.
+            <p>Jill & Mike</p>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="button" id="prevBtn">&lt;</button>
+        <button class="button" id="nextBtn">&gt;</button>
+      </div>
+    </section>
+
+    <!-- Similar Offers Section -->
+    <section id="offers">
+      <h2>Similar Offers</h2>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe">
+      <h2>Get the best offers in your mail</h2>
+      <p>
+        Subscribe to our newsletter and get all the best offers directly in your
+        inbox.
+      </p>
+      <div class="form-container">
+        <form class="subscribe-form">
+          <input type="email" placeholder="Email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section id="explore">
+      <p class="explore-text">
+        Want to know what to do in Novigrad? Get your guidebook!
+      </p>
+      <button class="explore-btn">Explore Novigrad</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <h3><em>Creators of Experience</em></h3>
+        <div class="footer-left">
+          <div class="footer-logos">
+            <img src="images/footer/see-adria.png" alt="Sea Adria Logo" />
+            <img src="images/footer/hgk.png" alt="HGK Logo" />
+          </div>
+          <ul>
+            <li><a href="#">Istria</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms and Conditions (Real Estate Agency)</a></li>
+            <li><a href="#">Terms and Conditions (Tourist Agency)</a></li>
+          </ul>
+        </div>
+        <div class="footer-middle">
+          <p><i class="fas fa-map-marker-alt"></i> Stancija</p>
+          <p>
+            <i class="fas fa-phone"></i> Tel:
+            <a href="tel:+1234567890">+123 456 7890</a>
+          </p>
+          <p>
+            <i class="fas fa-mobile-alt"></i> Mob:
+            <a href="tel:+1234567890">+123 456 7890</a>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i> Mail:
+            <a href="mailto:email@example.com">email@example.com</a>
+          </p>
+          <div class="social-icons">
+            <a href="#"><img src="images/footer/wa.png" alt="WhatsApp" /></a>
+            <a href="#"
+              ><img src="images/footer/facebook.png" alt="Facebook"
+            /></a>
+            <a href="#"><img src="images/footer/viber.png" alt="Viber" /></a>
+          </div>
+          <p>Fast support any day of the week</p>
+        </div>
+        <div class="footer-right">
+          <h4>Subscribe to our newsletter</h4>
+          <form action="#" method="post">
+            <input type="email" placeholder="Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="payment-options">
+            <img src="images/footer/card/american.png" alt="American Express" />
+            <img src="images/footer/card/diners.png" alt="Diners" />
+            <img src="images/footer/card/visa.png" alt="Visa" />
+            <img src="images/footer/card/mastercard.png" alt="Mastercard" />
+            <img src="images/footer/card/wspay.png" alt="WSpay" />
+          </div>
+          <p>All rights reserved</p>
+          <p>
+            Website development & maintenance: <a href="#">ADiSoft</a> |
+            <a href="#">eReal</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

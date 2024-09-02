@@ -1,0 +1,98 @@
+// NAVIGATION
+document.querySelector(".menu-toggle").addEventListener("click", function () {
+  const menuContainer = document.querySelector(".menu-container");
+  const isOpen = menuContainer.classList.toggle("open");
+  this.setAttribute("aria-expanded", isOpen);
+});
+
+// SLIDESHOW
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function changeSlide(n) {
+  showSlides((slideIndex += n));
+}
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName("slide");
+
+  if (n >= slides.length) {
+    slideIndex = 0;
+  } else if (n < 0) {
+    slideIndex = slides.length - 1;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex].style.display = "block";
+}
+
+// REVIEWS SLIDE
+const carousel = document.getElementById("carousel");
+const items = document.querySelectorAll(".carousel-item");
+const totalItems = items.length;
+let itemsToShow = 3;
+let index = 0;
+
+function updateItemsToShow() {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth <= 768) {
+    itemsToShow = 1;
+  } else if (screenWidth <= 1200) {
+    itemsToShow = 2;
+  } else {
+    itemsToShow = 3;
+  }
+}
+
+function updateCarousel() {
+  items.forEach((item, i) => {
+    item.classList.remove("center");
+    if (i >= index && i < index + itemsToShow) {
+      if (i === index + Math.floor(itemsToShow / 2)) {
+        item.classList.add("center");
+      }
+    }
+  });
+  carousel.style.transform = `translateX(-${index * (100 / itemsToShow)}%)`;
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if (index < totalItems - itemsToShow) {
+    index++;
+  } else {
+    carousel.style.transition = "none";
+    index = 0;
+    carousel.style.transform = `translateX(0%)`;
+    carousel.offsetHeight;
+    carousel.style.transition = "transform 0.5s ease-in-out";
+    index++;
+  }
+  updateCarousel();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (index > 0) {
+    index--;
+  } else {
+    carousel.style.transition = "none";
+    index = totalItems - itemsToShow;
+    carousel.style.transform = `translateX(-${index * (100 / itemsToShow)}%)`;
+    carousel.offsetHeight;
+    carousel.style.transition = "transform 0.5s ease-in-out";
+    index--;
+  }
+  updateCarousel();
+});
+
+window.addEventListener("resize", () => {
+  updateItemsToShow();
+  updateCarousel();
+});
+
+// Inicijalno postavljanje
+updateItemsToShow();
+updateCarousel();

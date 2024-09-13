@@ -2,7 +2,16 @@
 document.querySelector(".menu-toggle").addEventListener("click", function () {
   const menuContainer = document.querySelector(".menu-container");
   const isOpen = menuContainer.classList.toggle("open");
+
+  // Set aria-expanded based on the menu state
   this.setAttribute("aria-expanded", isOpen);
+
+  // Toggle between the burger and X icon
+  if (isOpen) {
+    this.innerHTML = "&#10006;"; // X icon when the menu is open
+  } else {
+    this.innerHTML = "&#9776;"; // Burger icon when the menu is closed
+  }
 });
 
 // SLIDESHOW

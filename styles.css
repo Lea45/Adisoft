@@ -10,7 +10,7 @@ body {
   background-color: rgb(191, 12, 12);
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 30px;
   position: absolute;
   top: 0;
   z-index: 1000;
@@ -20,66 +20,79 @@ body {
   justify-content: space-between;
 }
 
-.logo-item {
-  margin-right: 20px;
+.nav-header {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  font-size: 40px;
+  font-size: 36px;
   color: yellow;
   background-color: rgb(0, 0, 51);
-  max-width: fit-content;
+  padding: 10px 20px;
   border: 2px solid white;
-  padding: 10px;
+  border-radius: 8px;
 }
 
 .menu-container {
   display: flex;
   align-items: center;
   flex-grow: 1;
+  justify-content: space-between;
 }
 
 .menu {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 20px;
-  flex-grow: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .menu li {
   display: inline-block;
 }
 
+.menu li:first-child {
+  margin-left: 30px;
+}
+
 .menu li a {
   color: black;
+  font-size: 18px;
   text-decoration: none;
-  padding: 10px 15px;
-  display: block;
-}
-
-.menu li:nth-child(2) a,
-.menu li:nth-child(3) a,
-.menu li:nth-child(4) a {
-  border: 2px solid black;
+  padding: 10px 20px;
   border-radius: 30px;
+  border: 2px solid black;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.menu li:nth-child(5) a,
-.menu li:nth-child(6) a {
-  text-decoration: underline;
+.menu li a:hover {
+  background-color: white;
+  color: rgb(191, 12, 12);
+}
+
+.translate-buttons {
+  display: flex;
+  gap: 15px;
 }
 
 .translate-btn {
   background-color: rgb(191, 12, 12);
-  color: #000;
+  color: black;
   border: 2px solid black;
-  border-radius: 50px;
-  padding: 10px;
-  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   font-size: 16px;
-  margin-left: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.translate-btn:hover {
+  background-color: white;
+  color: rgb(191, 12, 12);
 }
 
 .menu-toggle {
@@ -91,29 +104,46 @@ body {
   cursor: pointer;
 }
 
-.menu-container {
-  overflow: hidden;
-  max-height: none;
-}
-
+/* Mobile styling */
 @media (max-width: 768px) {
   .navigation {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     margin: 0;
   }
 
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
   .menu-toggle {
+    margin-top: 0px;
     display: block;
-    align-self: flex-end;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: yellow;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .menu-toggle.active {
+    content: "\2715";
   }
 
   .menu-container {
     width: 100%;
     max-height: 0;
+    overflow: hidden;
     transition: max-height 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .menu-container.open {
@@ -123,36 +153,67 @@ body {
 
   .menu {
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     width: 100%;
+    padding: 0;
   }
 
   .menu li {
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .logo-item {
-    order: -1;
+  .menu li:first-child {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+
+  .menu li:last-child {
+    margin-bottom: 20px;
+  }
+
+  .menu li a {
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 30px;
     width: 100%;
+    text-align: center;
+    background-color: transparent;
+    margin: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    background-color: white;
+    color: rgb(191, 12, 12);
+  }
+
+  .translate-buttons {
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    display: flex;
+    gap: 15px;
+  }
+
+  .translate-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    border: 2px solid black;
   }
 
   .logo {
     font-size: 30px;
     margin-bottom: 10px;
-    margin-right: 0;
-  }
-
-  .menu li a {
-    padding: 10px;
-    border-bottom: 1px solid black;
-  }
-
-  .translate-btn {
-    font-size: 14px;
-    margin-left: 0;
-    margin-top: 10px;
-    align-self: flex-end;
   }
 }
 
@@ -264,6 +325,8 @@ body {
   .main-title {
     font-size: 36px;
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: -20px;
   }
 
   .price-btn {
@@ -274,6 +337,8 @@ body {
 
   .price {
     margin-right: 0;
+    margin-top: 5px;
+    margin-bottom: -5px;
     font-size: 18px;
   }
 
@@ -286,6 +351,9 @@ body {
     padding: 15px;
     font-size: 14px;
     margin: 10px 0;
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
   }
 }
 
@@ -443,8 +511,6 @@ body {
   background-color: rgba(189, 169, 169, 0.8);
 }
 
-/* Styles for larger screens - no changes needed here */
-
 /* Medium screen (e.g., tablets) */
 @media (max-width: 1024px) {
   .slideshow-container {
@@ -470,7 +536,7 @@ body {
 }
 
 /* Small screen (e.g., phones) */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .slideshow-container {
     margin-left: 0;
     margin-top: -50px;
@@ -483,14 +549,17 @@ body {
 
   .prev,
   .next {
-    bottom: 3px;
+    bottom: -2px;
     left: 3px;
     font-size: 14px;
     padding: 10px;
+    line-height: 1;
+    margin-bottom: 10px;
+    margin: 10px;
   }
 
   .next {
-    left: 30px;
+    left: 33px;
   }
 }
 
@@ -643,6 +712,12 @@ body {
   font-size: 2vw;
 }
 
+@media ((max-width: 768px)) {
+  .location-container img {
+    margin-top: 0;
+  }
+}
+
 /* Grid */
 .grid-container {
   display: grid;
@@ -713,7 +788,9 @@ body {
     top: -50px;
     z-index: 1;
   }
-
+  .amenitiesheadline {
+    margin-top: 40px;
+  }
   .amenities .icon {
     font-size: 1.5em;
     z-index: 0;
@@ -788,9 +865,9 @@ body {
 @media (max-width: 480px) {
   .add-amenities {
     grid-template-columns: 1fr;
-    margin: 20px;
     padding: 20px;
     gap: 10px;
+    margin-bottom: 5px;
   }
 
   .add-amenities h2 {
@@ -888,6 +965,7 @@ img {
 }
 
 /* Reviews */
+/* Reviews */
 h2 {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -897,7 +975,7 @@ h2 {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: rgb(204, 194, 194);
+  background-color: rgb(191, 191, 191);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -905,6 +983,8 @@ h2 {
 .carousel {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  width: 85%; /* Reduce the width to make room for the arrows */
+  margin: 0 auto; /* Center the carousel */
 }
 
 .carousel-item {
@@ -924,7 +1004,7 @@ h2 {
 .box {
   width: 100%;
   padding: 20px;
-  background-color: #e0e0e0;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -938,16 +1018,23 @@ h2 {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transform: translateY(-50%);
   z-index: 10;
 }
 
 .button {
-  color: rgb(15, 15, 160);
+  color: blue;
   border: none;
   padding: 10px;
-  background-color: transparent;
   font-size: 70px;
+  border-radius: 50%;
+  pointer-events: auto; /* Allows clicking only on the buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 15px; /* Adds space between the button and the carousel */
+}
+
+.button:focus {
+  outline: none;
 }
 
 @media (max-width: 1200px) {
@@ -971,6 +1058,10 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .carousel {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
   .carousel-item {
     min-width: 100%;
     padding: 20px;
@@ -991,6 +1082,10 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  .carousel {
+    width: 55%; /* Maximize the carousel width while keeping space for buttons */
+  }
+
   .carousel-item {
     min-width: 100%;
     padding: 10px;
@@ -1242,6 +1337,45 @@ footer {
   text-decoration: underline;
 }
 
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .footer-left,
+  .footer-middle,
+  .footer-right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-left h3,
+  .footer-right h4 {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .footer-logos,
+  .footer-middle .social-icons,
+  .payment-options {
+    justify-content: flex-start;
+  }
+
+  .footer-right form {
+    flex-direction: column;
+  }
+
+  .footer-right input[type="email"],
+  .footer-right button {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
 /* KALWNDAR*/
 /* Stilizacija za cijelu Booking and Availability sekciju */
 .booking-section {
@@ -1353,7 +1487,7 @@ footer {
   border: 1px solid #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1em;
   cursor: pointer;
 }
 
@@ -1448,11 +1582,6 @@ footer {
     font-size: 0.8rem;
     text-align: center;
   }
-
-  .clear-dates-btn {
-    width: 100%;
-    font-size: 1rem;
-  }
 }
 
 /* Extra small screens (mobile) */
@@ -1483,7 +1612,7 @@ footer {
   }
 
   .clear-dates-btn {
-    width: 100%;
+    width: auto;
     font-size: 1rem;
     padding: 10px;
   }

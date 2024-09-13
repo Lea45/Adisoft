@@ -306,9 +306,7 @@ body {
     padding: 10px;
     font-size: 12px;
   }
-}
-
-/* About Residence */
+} /* About Residence */
 .about {
   position: relative;
   display: flex;
@@ -364,6 +362,45 @@ body {
   align-items: center;
 }
 
+/* Responsive Styles */
+
+/* For tablets and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .text {
+    font-size: 1.2em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .icon {
+    font-size: 1em;
+    margin: 5px;
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .text {
+    font-size: 1em;
+    width: 90%;
+  }
+
+  .column {
+    padding: 10px;
+  }
+
+  .icon {
+    font-size: 0.9em;
+    margin: 5px;
+  }
+}
+
 /* Slideshow */
 .slideshow-container {
   position: relative;
@@ -372,6 +409,7 @@ body {
   z-index: 1;
   display: flex;
   align-items: center;
+  font-size: 1.5em;
 }
 
 .slide img {
@@ -405,18 +443,78 @@ body {
   background-color: rgba(189, 169, 169, 0.8);
 }
 
+/* Styles for larger screens - no changes needed here */
+
+/* Medium screen (e.g., tablets) */
+@media (max-width: 1024px) {
+  .slideshow-container {
+    margin-left: 0px;
+    margin-top: -80px;
+    font-size: 1.2em;
+  }
+
+  .slide img {
+    width: 70%;
+  }
+
+  .prev,
+  .next {
+    bottom: 5px;
+    left: 5px;
+    font-size: 16px;
+  }
+
+  .next {
+    left: 40px;
+  }
+}
+
+/* Small screen (e.g., phones) */
+@media (max-width: 600px) {
+  .slideshow-container {
+    margin-left: 0;
+    margin-top: -50px;
+    font-size: 1em;
+  }
+
+  .slide img {
+    width: 100%;
+  }
+
+  .prev,
+  .next {
+    bottom: 3px;
+    left: 3px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .next {
+    left: 30px;
+  }
+}
+
 /* Text Next to Slideshow */
-.slideshow-text {
+.slideshow-container {
   position: relative;
+}
+
+.slideshow-text {
+  position: absolute;
+  top: 50%; /* Centrirano vertikalno na većim ekranima */
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centriraj tekst horizontalno i vertikalno */
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  margin-left: -50%;
-  transform: translateX(-50%);
-  z-index: 2;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  width: 50%; /* Ograničite širinu teksta */
 }
 
 .textt {
@@ -425,9 +523,9 @@ body {
   text-align: left;
 }
 
+/* Za sve ekrane ispod 1024px - tekst ide odmah na dno */
 @media (max-width: 1024px) {
   .slideshow-container {
-    margin-left: 0;
     margin-top: 0;
     flex-direction: column;
     align-items: center;
@@ -438,39 +536,80 @@ body {
   }
 
   .slideshow-text {
-    margin-left: 0;
-    transform: none;
+    top: auto; /* Uklanja vertikalno centriranje */
+    bottom: 10px; /* Tekst se odmah pomiče prema dnu slike */
+    left: 50%;
+    transform: translateX(-50%); /* Samo horizontalno centriranje */
+    width: 80%; /* Smanjuje širinu teksta */
     padding: 15px;
-    margin-top: -150px;
-    width: 80%;
+    margin-top: 0; /* Uklanja negativnu marginu */
   }
 
   .textt {
-    font-size: 24px;
+    font-size: 2em;
   }
 }
 
+/* Za manje ekrane do 768px */
 @media (max-width: 768px) {
   .slideshow-text {
     width: 70%;
     padding: 10px;
-    margin-top: -130px;
+    bottom: 10px; /* Tekst ostaje pri dnu */
+    left: 50%;
+    transform: translateX(-50%); /* Samo horizontalno centriranje */
   }
 
   .textt {
-    font-size: 20px;
+    font-size: 0.5em;
   }
 }
 
+/* Za ekrane do 480px */
 @media (max-width: 480px) {
   .slideshow-text {
     width: 60%;
     padding: 8px;
-    margin-top: -110px;
+    bottom: 5px; /* Pomiče tekst još niže za manje zaslone */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 30px;
   }
 
   .textt {
-    font-size: 18px;
+    font-size: 0.2em;
+  }
+}
+
+/* Za veće ekrane */
+@media (min-width: 1025px) {
+  .slideshow-text {
+    width: 50%; /* Ograničite maksimalnu širinu za veće ekrane */
+    top: 50%; /* Cijeli tekst ostaje centriran vertikalno u sredini slike */
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50%
+    ); /* Centriraj tekst horizontalno i vertikalno */
+    padding: 20px;
+  }
+
+  .textt {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1025px) {
+  .slideshow-text {
+    width: 70%;
+    padding: 10px;
+    bottom: 10px; /* Tekst ostaje pri dnu */
+    left: 50%;
+    transform: translateX(-50%); /* Samo horizontalno centriranje */
+  }
+
+  .textt {
+    font-size: 0.5em;
   }
 }
 
@@ -485,15 +624,14 @@ body {
   width: 25vw;
   height: 15vw;
   margin-left: 20px;
-  margin-top: -50px;
+  margin-top: -30px;
   z-index: 2;
 }
 
 .lct-text {
   font-size: 2.5vw;
   color: black;
-  text-align: left;
-  padding: 0 30px;
+  margin: 10px;
 }
 
 .text-container {
@@ -502,7 +640,7 @@ body {
 }
 
 .nextto-text {
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 /* Grid */
@@ -1102,4 +1240,269 @@ footer {
 
 .footer-right a:hover {
   text-decoration: underline;
+}
+
+/* KALWNDAR*/
+/* Stilizacija za cijelu Booking and Availability sekciju */
+.booking-section {
+  background-color: #0c162d;
+  padding: 40px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Stilizacija za kalendar */
+.calendar-wrapper {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  margin: auto;
+}
+
+.flatpickr-calendar {
+  width: 100%; /* Kalendar zauzima cijelu širinu */
+}
+
+.flatpickr-months {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Zadano: 4 mjeseca vidljiva na velikim ekranima */
+.flatpickr-month {
+  width: calc(25% - 10px); /* 4 months on large screens */
+}
+
+/* Smanjivanje broja vidljivih mjeseci na tabletima */
+@media (max-width: 1024px) {
+  .flatpickr-month {
+    width: calc(50% - 10px); /* 2 months on tablets */
+  }
+}
+
+/* Prikazivanje samo jednog mjeseca na mobitelima */
+@media (max-width: 768px) {
+  .flatpickr-month {
+    width: 100%; /* 1 month on mobile devices */
+  }
+}
+
+.flatpickr-day {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem; /* Podesite veličinu fonta da stane na manji ekran */
+}
+
+/* Stilizacija za disabled i selected dane */
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+  background-color: #ffcccc;
+  color: #ff5c5c;
+}
+
+.flatpickr-day.selected {
+  background-color: #0056b3;
+  color: white;
+}
+
+.flatpickr-day.today {
+  background-color: #004494;
+  color: white;
+}
+
+/* Stilizacija zaglavlja */
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.left-section h2 {
+  font-size: 2rem;
+}
+
+.left-section p {
+  font-size: 1rem;
+  color: #b0c4de;
+  margin-left: -100px;
+}
+
+/* Stilizacija desnog dijela (Best Price Guarantee i Clear Dates) */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.guarantee p {
+  font-size: 0.9rem;
+  text-align: right;
+  color: #b0c4de;
+  line-height: 1.5;
+}
+
+/* Stilizacija za gumb "Clear dates" */
+.clear-dates-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.clear-dates-btn:hover {
+  background-color: #ffffff;
+  color: #0c162d;
+  border: 1px solid #ffffff;
+}
+
+/* Gost rezervacija */
+.guest-booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+#guests {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+}
+
+.booking-btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.booking-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Dostupnost status */
+.availability-status {
+  margin-top: 20px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.available-status {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.not-available-status {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #ff5c5c;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Responsive adjustments */
+/* Manji ekrani (tableti i ispod) */
+@media (max-width: 768px) {
+  .booking-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .left-section p {
+    margin-left: -50px;
+  }
+
+  .right-section {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10px;
+  }
+
+  .guarantee p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .clear-dates-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screens (mobile) */
+@media (max-width: 480px) {
+  .booking-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .left-section p {
+    font-size: 0.9rem;
+    margin-left: -25px;
+  }
+
+  .right-section {
+    align-items: left;
+    margin-top: 10px;
+    margin-left: -85px;
+  }
+
+  .guarantee p {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  .clear-dates-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .guest-booking {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #guests {
+    width: 100%;
+  }
+
+  .booking-btn {
+    width: 100%;
+  }
+
+  .calendar-wrapper {
+    padding: 10px;
+    margin-left: -10px;
+  }
 }

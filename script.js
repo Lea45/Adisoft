@@ -96,3 +96,36 @@ window.addEventListener("resize", () => {
 // Inicijalno postavljanje
 updateItemsToShow();
 updateCarousel();
+
+// FLATPICKR
+document.addEventListener("DOMContentLoaded", function () {
+  // Funkcija za prilagođavanje broja prikazanih mjeseci ovisno o širini ekrana
+  const adjustCalendarDisplay = () => {
+    let monthsToShow = 4; // Zadano četiri mjeseca za velike ekrane
+
+    if (window.innerWidth <= 1024) {
+      monthsToShow = 2; // Dva mjeseca za tablete
+    }
+
+    if (window.innerWidth <= 768) {
+      monthsToShow = 1; // Jedan mjesec za mobitele
+    }
+
+    flatpickr("#flatpickr", {
+      enableTime: false,
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      mode: "range",
+      showMonths: monthsToShow, // Broj mjeseci prilagođen veličini ekrana
+      inline: true,
+      locale: {
+        firstDayOfWeek: 1, // Tjedan počinje ponedjeljkom
+      },
+    });
+  };
+
+  adjustCalendarDisplay(); // Pokreni funkciju prilikom učitavanja
+
+  // Prilagodi broj mjeseci pri promjeni veličine prozora
+  window.addEventListener("resize", adjustCalendarDisplay);
+});
